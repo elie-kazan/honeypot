@@ -1,7 +1,7 @@
 import sockets
 import paramiko
 import os
-
+from datetime import datetime
 class Server(paramiko.ServerInterface):
 
     def __init__(self):
@@ -20,10 +20,12 @@ class Server(paramiko.ServerInterface):
         """Log the action with the date of the action in the log.txt file """
         log_file = open("./log.txt", "a")
         log_file.write("\n")
-        log_file.write(str(action) + " " + str(date) + " " )
+        log_file.write(str(action) + " " + str(date) + " " + str(datetime.now()))
         log_file.close()
 
     
+    
+
 
 
 
