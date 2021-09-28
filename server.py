@@ -14,6 +14,16 @@ class Server(paramiko.ServerInterface):
         else:
             log_file = open("./log.txt", "w")
             log_file.write('My first log')
+            log_file.close()
+
+    def log(self,action,date):
+        """Log the action with the date of the action in the log.txt file """
+        log_file = open("./log.txt", "a")
+        log_file.write("\n")
+        log_file.write(str(action) + " " + str(date) + " " )
+        log_file.close()
+
+    
 
 
 
