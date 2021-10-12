@@ -1,5 +1,14 @@
 # honeypot
 
-## creating a log file
+## Demo picture
 
-the server is supposed to log everything the bots are doing in order to analyse it afterwards
+## dependencies
+
+'''
+pip install -r dependencies.txt
+'''
+
+
+
+
+
