@@ -1,0 +1,2 @@
+1-implementation of the simulated shell.
+2- find a friend to run the shit on with.
