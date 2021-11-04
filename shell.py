@@ -2,17 +2,25 @@ from cmd import Cmd
 import os
 
 class MyShell(Cmd):
-    cwd = str(os.getcwd())
-
+    cwd = os.getcwd()
     prompt = cwd + '> '
 
     def do_exit(self,inp):
         print("exiting")
         return True
     def do_cd(self,s):
-        cwd = os.chdir(s)
+        os.chdir(s)
 
-    cwd = str(os.getcwd())    
+    def do_rm(self,s):
+        print("deleting " , s)
+        os.remove(s)
+
+    def do_ls(self,s):
+        files = os.listdir('.')
+        for i in files:
+            print(i)
+
+
 
 
 
