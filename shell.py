@@ -8,8 +8,13 @@ class MyShell(Cmd):
     def do_exit(self,inp):
         print("exiting")
         return True
+    
     def do_cd(self,s):
+        print("changing directory to " , s)
         os.chdir(s)
+        self.cwd = os.getcwd()
+        self.prompt = self.cwd + '> '
+    
 
     def do_rm(self,s):
         print("deleting " , s)
