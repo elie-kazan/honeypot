@@ -2,7 +2,7 @@ from cmd import Cmd
 import os
 import logging
 
-logging.basicConfig(filename='shell.log', filemode="a")
+logging.basicConfig(filename='shell.log',level=logging.DEBUG)
 
 
 
@@ -103,7 +103,7 @@ class MyShell(Cmd):
         print("sed " , s)
         os.system("sed " + s)
         logging.info("sed " + s)
-        
+
     
     
 
