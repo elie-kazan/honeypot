@@ -1,2 +1,22 @@
 INFO:root:changing directory to /home
 INFO:root:exiting
+INFO:root:changing directory to /home
+INFO:root:changing directory to /home/elie
+INFO:root:exiting
+INFO:root:Welcome to my shell
+INFO:root:command not found
+INFO:root:changing directory to /hom
+INFO:root:Welcome to my shell
+INFO:root:changing directory to /hom
+INFO:root:Welcome to my shell
+INFO:root:changing directory to /hom
+INFO:root:[Errno 2] No such file or directory: '/hom'
+INFO:root:exiting
+INFO:root:Welcome to my shell
+INFO:root:listing files
+INFO:root:sed .
+INFO:root:finding -name "elie"
+INFO:root:finding -name "shell.py"
+INFO:root:changing directory to /hom
+INFO:root:[Errno 2] No such file or directory: '/hom'
+INFO:root:exiting

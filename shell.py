@@ -7,105 +7,183 @@ logging.basicConfig(filename='shell.log',level=logging.DEBUG)
 
 
 class MyShell(Cmd):
+
     cwd = os.getcwd()
     prompt = cwd + '> '
+
+    # display a banner
+    def preloop(self):
+        print("Welcome to my shell")
+        logging.info("Welcome to my shell")
     
-
-
-
     def do_exit(self,inp):
         print("exiting")
         logging.info("exiting")
-        
-        
-
         return True
     
     def do_cd(self,s):
-        print("changing directory to " , s)
-        logging.info("changing directory to " + s)
-        os.chdir(s)
-        self.cwd = os.getcwd()
-        self.prompt = self.cwd + '> '
-    
+        # catch the exception
+        try:
+            print("changing directory to " , s)
+            logging.info("changing directory to " + s)
+            os.chdir(s)
+            self.cwd = os.getcwd()
+            self.prompt = self.cwd + '> '
+        except Exception as e:
+            print(e)
+            logging.info(e)
+        
 
     def do_rm(self,s):
-        print("deleting " , s)
-        logging.info("deleting " + s)
-        os.remove(s)
+        try:
+            print("deleting " , s)
+            logging.info("deleting " + s)
+            os.remove(s)
+        except Exception as e:
+            print(e)
+            logging.info(e)
+        
 
     def do_ls(self,s):
-        files = os.listdir('.')
-        for i in files:
-            print(i)
-        logging.info("listing files")
+        try:
+            files = os.listdir('.')
+            for i in files:
+                print(i)
+            logging.info("listing files")
+        except Exception as e:
+            print(e)
+            logging.info(e)
+        
 
     def do_pwd(self,s):
-        print(os.getcwd())
-        logging.info("printing current working directory")
+        try:
+            print(os.getcwd())
+            logging.info("printing current working directory")
+        except Exception as e:
+            print(e)
+            logging.info(e)
+
+        
 
     def do_mkdir(self,s):
-        os.mkdir(s)
-        logging.info("making directory " + s)
+        try:
+            os.mkdir(s)
+            logging.info("creating directory " + s)
+        except Exception as e:
+            print(e)
+            logging.info(e)
     
     def do_rmdir(self,s):
-        os.rmdir(s)
-        logging.info("removing directory " + s)
+        try:
+            print("deleting directory " , s)
+            os.rmdir(s)
+            logging.info("deleting directory " + s)
+        except Exception as e:
+            print(e)
+            logging.info(e)
 
     
     def do_touch(self,s):
-        f = open(s,'w')
-        f.close()
-        logging.info("touching " + s)
+        try:
+            f = open(s,'w')
+            f.close()
+            logging.info("touching " + s)
+        except Exception as e:
+            print(e)
+            logging.info(e)
     
     def do_cat(self,s):
-        f = open(s,'r')
-        print(f.read())
-        f.close()
-        logging.info("peaking into " + s)
+        try:
+            f = open(s,'r')
+            print(f.read())
+            f.close()
+            logging.info("peaking into " + s)
+        except Exception as e:
+            print(e)
+            logging.info(e)
     
     def do_cp(self,s):
-        print("copying " , s)
-        os.system("cp " + s)
-        logging.info("copying " + s)
+        try:
+            print("copying " , s)
+            os.system("cp " + s)
+            logging.info("copying " + s)
+        except Exception as e:
+            print(e)
+            logging.info(e)
     
     def do_mv(self,s):
-        print("moving " , s)
-        os.system("mv " + s)
-        logging.info("moving " + s)
+        try:
+
+            print("moving " , s)
+            os.system("mv " + s)
+            logging.info("moving " + s)
+        except Exception as e:
+            print(e)
+            logging.info(e)
     
     def do_chmod(self,s):
-        print("changing mode of " , s)
-        os.system("chmod " + s)
-        logging.info("changing permissions of " + s)
+        try:
+            print("changing mode of " , s)
+            os.system("chmod " + s)
+            logging.info("changing permissions of " + s)
+        except Exception as e:
+            print(e)
+            logging.info(e)
     
     def do_chown(self,s):
-        print("changing owner of " , s)
-        os.system("chown " + s)
-        logging.info("changing owner of " + s)
+        try:
+            print("changing owner of " , s)
+            os.system("chown " + s)
+            logging.info("changing owner of " + s)
+        except Exception as e:
+            print(e)
+            logging.info(e)
     
     def do_chgrp(self,s):
-        print("changing group of " , s)
-        os.system("chgrp " + s)
-        logging.info("changing group of " + s)
+        try:
+            print("changing group of " , s)
+            os.system("chgrp " + s)
+            logging.info("changing group of " + s)
+        except Exception as e:
+            print(e)
+            logging.info(e)
     
     def do_find(self,s):
-        print("finding " , s)
-        os.system("find " + s)
-        logging.info("finding " + s)
+        try:
+            print("finding " , s)
+            os.system("find " + s)
+            logging.info("finding " + s)
+        except Exception as e:
+            print(e)
+            logging.info(e)
     
     def do_grep(self,s):
-        print("grep " , s)
-        os.system("grep " + s)
-        logging.info("grep " + s)
+        try:
+            print("grep " , s)
+            os.system("grep " + s)
+            logging.info("grep " + s)
+        except Exception as e:
+            print(e)
+            logging.info(e)
     
     def do_sed(self,s):
-        print("sed " , s)
-        os.system("sed " + s)
-        logging.info("sed " + s)
+        try:
+            print("sed " , s)
+            os.system("sed " + s)
+            logging.info("sed " + s)
+        except Exception as e:
+            print(e)
+            logging.info(e)
+    
+    # in case of any error
+    def default(self,s):
+        print("command not found")
+        logging.info("command not found")
+    
+    def emptyline(self):
+        pass
+    
 
-    
-    
 
 
 if __name__== '__main__':
