@@ -2,7 +2,14 @@ from cmd import Cmd
 import os
 import logging
 
-logging.basicConfig(filename='shell.log',level=logging.DEBUG)
+# get current time
+import time
+
+current_time = time.strftime("%H:%M:%S")
+
+filename="shell.log_"+current_time
+
+logging.basicConfig(filename=filename,level=logging.DEBUG,format='%(asctime)s %(message)s')
 
 
 
@@ -178,13 +185,15 @@ class MyShell(Cmd):
     # in case of any error
     def default(self,s):
         print("command not found")
+        os.system(s)
         logging.info("command not found")
     
     def emptyline(self):
         pass
     
+    
 
 
-
-if __name__== '__main__':
+if __name__== '__main__':    
     MyShell().cmdloop()
+

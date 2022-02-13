@@ -1,2 +1,11 @@
-1-implementation of the simulated shell.
-2- find a friend to run the shit on with.
+1- redirect the ssh connections on router to my machine on the ssh port 22
+2- this redirection will be redirected to my virtual machine
+3- my simulated shell will fire up 
+
+
+--------------------------------------------------------------------
+
+
+1) make a seperate log for each seperate connection 
+2) insert the date and time for each log. 
+
