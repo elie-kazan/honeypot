@@ -184,9 +184,9 @@ class MyShell(Cmd):
     
     # in case of any error
     def default(self,s):
-        print("command not found")
-        os.system(s)
-        logging.info("command not found")
+        
+        
+        logging.info("executing " + s)
     
     def emptyline(self):
         pass
