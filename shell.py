@@ -182,6 +182,15 @@ class MyShell(Cmd):
             print(e)
             logging.info(e)
     
+    def do_wget(self,s):
+        try:
+            print("wget " , s)
+            os.system("wget " + s)
+            logging.info("wget " + s)
+        except Exception as e:
+            print(e)
+            logging.info(e)
+    
     # in case of any error
     def default(self,s):
         
